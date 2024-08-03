@@ -30,14 +30,17 @@ import com.codmari.noter.R
 import kotlinx.serialization.Serializable
 
 @Serializable
+// Data class representing a note item
 data class NoteData(val title: String, val content: String, val createdAt: String)
 
+// Función componible para mostrar un elemento de nota
 @Composable
 fun ItemNote(dataNote: NoteData){
     val commonTextStyle =  TextStyle(fontFamily = MontSerrantAlternativeFamily, color = GrayText)
     Card(elevation = CardDefaults.cardElevation(defaultElevation = 5.dp), colors = CardDefaults.cardColors(
         containerColor = Color(0xFFD1D1D1)
     )) {
+        // Columna para organizar el título y el contenido verticalmente
         Column(Modifier.padding(horizontal = 9.dp, vertical = 6.dp)) {
             Text(
                 text = dataNote.title,
